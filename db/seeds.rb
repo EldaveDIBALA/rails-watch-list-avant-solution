@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+25.times do 
+  Movie.create(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::LoremFlickr.image(siez: '500x750', search_term: ['movie']),
+    rating: Faker::Number.decimal(l_digits: 1, r_digits: 1).to_f
+  )
+end
