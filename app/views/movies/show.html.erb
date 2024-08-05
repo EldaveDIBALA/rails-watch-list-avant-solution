@@ -1,0 +1,29 @@
+<div class="container mt-4 text-center">
+  <h1><%= @movie.title %></h1>
+
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center">
+      <div class="card mb-3" style="max-width: 100%; width: 800px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <% if @movie.poster_url.present? %>
+              <%= image_tag @movie.poster_url, class: 'img-fluid', alt: @movie.title, style: "max-height: 100%; max-width: 100%;" %>
+            <% else %>
+              <img src="https://via.placeholder.com/300x450" class="img-fluid" alt="Placeholder" style="max-height: 100%; max-width: 100%;">
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-text"><%= @movie.overview %></p>
+              <p class="card-text"><small class="text-muted">Rating: <%= @movie.rating %></small></p>
+              <%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-primary' %>
+              <%= link_to 'Destroy', @movie, method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+              <%= link_to 'Back', movies_path, class: 'btn btn-secondary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

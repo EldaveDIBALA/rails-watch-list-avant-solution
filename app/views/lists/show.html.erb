@@ -1,0 +1,22 @@
+<div class="container mt-4 text-center">
+  <h1>
+    <%= @list.name %>
+  </h1>
+
+  <div class="container mt=4">
+    <h2>Bookmarks</h2>
+    <%= render @list.bookmarks %>
+    <div class="d-flex justify-content-center">
+      <div class="card mb-3" style="max-width: 100%, width: 800px;">
+        <div class="row g-0">
+          <div class="col md-4">
+            <h3>Ajouter un signet</h3>
+            <%= render 'bookmarks/form', list: @list %>
+            <%= link_to 'Revenir en arrière', lists_paht, class: 'btn btn-secondary mt-3' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

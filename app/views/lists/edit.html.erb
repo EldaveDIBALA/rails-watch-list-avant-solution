@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1>Modier la liste</h1>
+
+  <%= form_with(model: @list, local: true, html: { class: 'form-horizontal' }) do |form| %>
+    <% if @list.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading">Oops!</h4>
+        <ul>
+          <% @list.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group mb-4">
+      <%= form.label :nom, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.submit 'Valider', class: 'btn btn-primary' %>
+      <%= link_to 'Retour', lists_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>

@@ -6,4 +6,9 @@ class Movie < ApplicationRecord
 
   validates :overview, presence: true
   validates :title, presence: true, uniqueness: true
+  # validates :rating, numericality: {
+  #   greater_than_or_equal_to: 0,
+  #   less_than_or_equal_to: 10,
+  #   message: 'Votre note doit être comprise entre 0 et 10'
+  # }
 end
